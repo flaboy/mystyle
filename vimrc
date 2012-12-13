@@ -499,3 +499,7 @@ inoremap <C-F>             <C-X><C-F>
 inoremap <C-D>             <C-X><C-D>
 inoremap <C-L>             <C-X><C-L> 
 set clipboard=unnamed
+
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+
