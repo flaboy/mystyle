@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/wanglei/work/betternow/apps'
+let g:netrw_dirhist_2='/Users/wanglei/work/bnow'
+let g:netrw_dirhist_3='/Volumes/Main/Data/work/betternow'
+let g:netrw_dirhist_4='/Volumes/Main/Data/work'
+let g:netrw_dirhist_5='/Volumes/Main/Data/work/betternow/bnow'
+let g:netrw_dirhist_6='/Volumes/Main/Data/work/scope/src'
+let g:netrw_dirhist_7='/Volumes/Main/Data/work/scope'
+let g:netrw_dirhist_8='/Volumes/Main/Data/work/betternow/bnow'
