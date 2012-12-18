@@ -1,102 +1,55 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=4096
-SAVEHIST=1024
-setopt APPEND_HISTORY
-setopt appendhistory autocd extendedglob AUTO_LIST AUTO_MENU MENU_COMPLETE
-unsetopt beep
-bindkey -e
-bindkey "\e[3~" delete-char
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 
-#setopt AUTO_LIST
-#setopt AUTO_MENU
-#setopt MENU_COMPLETE
+#==========================================================================
+#
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.zsh
 
-autoload -U compinit
-compinit
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="blinks"
 
-autoload -U colors
-colors
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Completion caching
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path .zcache
-#zstyle ':completion:*:cd:*' ignore-parents parent pwd
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-#Completion Options
-zstyle ':completion:*:match:*' original only
-zstyle ':completion::prefix-1:*' completer _complete
-zstyle ':completion:predict:*' completer _complete
-zstyle ':completion:incremental:*' completer _complete _correct
-zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-# Path Expansion
-zstyle ':completion:*' expand 'yes'
-zstyle ':completion:*' squeeze-shlashes 'yes'
-zstyle ':completion::complete:*' '\\'
+# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
-zstyle ':completion:*:*:*:default' menu yes select
-zstyle ':completion:*:*:default' force-list always
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-zmodload zsh/complist
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
 
-compdef pkill=kill
-compdef pkill=killall
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:processes' command 'ps -au$USER'
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
 
-# Group matches and Describe
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
-zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
-zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+plugins=(git)
 
-autoload -U promptinit
+source $ZSH/oh-my-zsh.sh
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -f'
 alias ls='ls -trFh --color'
 alias ll='ls -l'
-#alias vim='mvim --remote-silent-tab'
 PAGER='less -X -M'
 export LESS=' -R '
-bindkey "[A" up-line-or-search
-bindkey  up-line-or-search
-bindkey  down-line-or-search
-bindkey "[B" down-line-or-search
-# End of lines added by compinstall
 
 eman() { erl -man "${1}" }
 export EDITOR=vim
-
-setopt PROMPT_SUBST
- 
-# Autoload zsh functions.
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
- 
-# Enable auto-execution of functions.
-typeset -ga preexec_functions
-typeset -ga precmd_functions
-typeset -ga chpwd_functions
- 
-# Append git functions needed for prompt.
-preexec_functions+='preexec_update_git_vars'
-precmd_functions+='precmd_update_git_vars'
-chpwd_functions+='chpwd_update_git_vars'
- 
-# Set the prompt.
-PROMPT=$'%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%}> '
 
 test -e ~/.zshrc.local && . ~/.zshrc.local
