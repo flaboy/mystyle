@@ -3,7 +3,7 @@
 #==========================================================================
 #
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.zsh
+ZSH=$HOME/.mystyle/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -37,7 +37,7 @@ ZSH_THEME="blinks"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,7 +49,6 @@ alias ll='ls -l'
 PAGER='less -X -M'
 export LESS=' -R '
 
-eman() { erl -man "${1}" }
 export EDITOR=vim
 
 test -e ~/.zshrc.local && . ~/.zshrc.local

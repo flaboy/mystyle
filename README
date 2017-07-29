@@ -1,3 +1,1 @@
-wget --no-check-certificate \
-         https://github.com/flaboy/mystyle/archive/master.zip \
-        -O $$.zip ; unzip $$.zip ; rm $$.zip; mystyle-master/install.sh 
+git clone https://github.com/flaboy/mystyle.git && make -C mystyle install

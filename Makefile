@@ -5,11 +5,13 @@ style:=`pwd`
 oh-my-zsh:
 	git clone git://github.com/robbyrussell/oh-my-zsh.git
 
-install:
+install: oh-my-zsh
 	rm -rf ~/.zshrc ~/.zsh ~/.vimrc ~/.vim 2>&1 >/dev/null
-	ln -sf ${style}/zshrc ~/.zshrc
-	ln -sf ${style}/oh-my-zsh ~/.zsh
-	ln -sf ${style}/vimrc ~/.vimrc
-	ln -sf ${style}/vim ~/.vim
+	mv ${style} ~/.mystyle
+	ln -sf ~/.mystyle/zshrc ~/.zshrc
+	ln -sf ~/.mystyle/oh-my-zsh ~/.zsh
+	ln -sf ~/.mystyle/vimrc ~/.vimrc
+	ln -sf ~/.mystyle/vim ~/.vim
+	git config --global --add oh-my-zsh.hide-status 1
 	echo "mystyle installed"
 	exec zsh
